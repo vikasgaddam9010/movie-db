@@ -5,6 +5,7 @@ import Popular from './components/Popular'
 import TopRated from './components/TopRated'
 import Upcoming from './components/Upcoming'
 import Search from './components/Search'
+import ViewDetails from './components/ViewDetails'
 
 import ReactContext from './ReactContext'
 
@@ -56,6 +57,7 @@ const App = () => {
           <Route exact path="/top-rated" component={TopRated} />
           <Route exact path="/upcoming" component={Upcoming} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/movie/:id" component={ViewDetails} />
         </Switch>
       </div>
     </ReactContext.Provider>

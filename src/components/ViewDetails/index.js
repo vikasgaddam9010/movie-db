@@ -14,6 +14,7 @@ class ViewDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+    console.log(id)
     const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
     const serverRes = await fetch(url)
     const jsonData = await serverRes.json()
@@ -47,11 +48,7 @@ class ViewDetails extends Component {
 
     const color = movieCredits.vote_average >= 7.5 ? 'green' : 'red'
     return (
-      <div className="p-5">
-        <h1 className="mb-2" style={{fontWeight: '800'}}>
-          Movie Details
-        </h1>
-
+      <>
         <div>
           <h3 className="text-center mt-3">
             Name:{' '}
@@ -140,12 +137,19 @@ class ViewDetails extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </>
     )
   }
 
   renderLoadingView = () => (
-    <div className="loader-container">
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '75vh',
+      }}
+    >
       <Loader type="TailSpin" color="#032541" />
     </div>
   )
@@ -153,11 +157,14 @@ class ViewDetails extends Component {
   render() {
     const {apiStatus} = this.state
     return (
-      <>
+      <div className="p-5">
+        <h1 className="mb-2" style={{fontWeight: '800'}}>
+          Movie Details
+        </h1>
         {apiStatus === 'loading'
           ? this.renderLoadingView()
           : this.renderSuccessView()}
-      </>
+      </div>
     )
   }
 }

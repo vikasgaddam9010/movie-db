@@ -3,7 +3,12 @@
   object-fit: cover;
   border-radius: 20px;
 }
-
+.movie-title {
+  font-size: 16px;
+}
+.movie-rating {
+  font-size: 12px;
+}
 .movie {
   display: flex;
   flex-direction: column;
