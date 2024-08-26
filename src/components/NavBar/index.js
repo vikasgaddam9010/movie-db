@@ -12,7 +12,6 @@ const NavBar = props => {
           onTriggerSearchingQuery,
           onChangeSearchInput,
           searchInput,
-          apiStatus,
         } = value
 
         const onChangeHandler = event => onChangeSearchInput(event.target.value)
@@ -25,7 +24,7 @@ const NavBar = props => {
         }
 
         return (
-          <div className="d-flex align-items-center">
+          <div className="d-flex mb-3">
             <input
               type="text"
               className="me-2 search-input"
@@ -34,7 +33,7 @@ const NavBar = props => {
               placeholder="Search"
             />
             <button
-              className="btn btn-outline-info"
+              className="ml-2 btn btn-primary"
               type="button"
               onClick={onSearchHandler}
             >
@@ -47,17 +46,17 @@ const NavBar = props => {
   )
 
   return (
-    <nav>
-      <h1>Movie DB</h1>
+    <nav className="d-flex flex-column align-items-center p-2">
+      <h1 className="m-3">movieDB</h1>
       {renderSearchBar()}
-      <ul>
+      <ul className="ul-container p-0 d-flex " style={{listStyleType: 'none'}}>
         <li className="nav-item">
           <Link className="nav-link" to="/">
             Popular
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/top-rated">
+          <Link className="nav-link " to="/top-rated">
             Top Rated
           </Link>
         </li>
